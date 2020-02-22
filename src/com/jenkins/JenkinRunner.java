@@ -15,10 +15,10 @@ public class JenkinRunner {
 	public static void main(String[] args) throws IOException {
 		try {
 			String configFilePath = args[0];
-			boolean isLinux = Boolean.valueOf(args[1]);
+			String closingKey = args[1];
 			List<String> commands = getCommands(configFilePath); 
-			TerminalCMD terminal = new TerminalCMD(isLinux);
-			FileLogger logger = new FileLogger();
+			TerminalCMD terminal = new TerminalCMD(true);
+			FileLogger logger = new FileLogger(closingKey);
 			terminal.runInSequence(commands,logger);
 		}
 		catch(Exception ex){

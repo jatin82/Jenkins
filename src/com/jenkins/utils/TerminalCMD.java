@@ -67,6 +67,11 @@ public class TerminalCMD {
         StringBuilder sb = new StringBuilder();
         while (true) {
             line = r.readLine();
+            if(line!=null && line.equals(logger.getClosingKey())) {
+            	logger.log("Closing key recieved :: shutting down jenkins");
+            	r.close();
+            	return sb.toString();
+            }
             if (line == null) { break; }
             line = line + "\n";
             logger.log(line);
