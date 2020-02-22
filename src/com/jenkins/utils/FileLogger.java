@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 
 public class FileLogger {
 	
@@ -15,9 +15,9 @@ public class FileLogger {
 	private Date date;
 	
 	public FileLogger(String closingKey) throws IOException {
-		date = new Date(0);
+		date = new Date();
 		this.closingKey = closingKey;
-		File file = new File("jenkinsDeployer.txt");
+		File file = new File("deployer_"+date.toString()+"_.txt");
 		writer = new BufferedWriter(new FileWriter(file));
 	}
 	
