@@ -20,6 +20,7 @@ public class JenkinRunner {
 			TerminalCMD terminal = new TerminalCMD(true);
 			FileLogger logger = new FileLogger(closingKey);
 			terminal.runInSequence(commands,logger);
+			logger.close();
 		}
 		catch(Exception ex){
 			ex.printStackTrace();
